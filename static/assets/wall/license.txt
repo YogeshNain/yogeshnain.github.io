@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stone Wall Nr.1
+* source:	https://sketchfab.com/3d-models/stone-wall-nr1-db78ea96a1804e9598fab1021f4f1d89
+* author:	3DandVR (https://sketchfab.com/3DandVR)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stone Wall Nr.1" (https://sketchfab.com/3d-models/stone-wall-nr1-db78ea96a1804e9598fab1021f4f1d89) by 3DandVR (https://sketchfab.com/3DandVR) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
