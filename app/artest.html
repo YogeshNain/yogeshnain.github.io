@@ -9,7 +9,26 @@
   <script type='text/javascript' src='static/assets/js/ar/ar-threex-location-only.js'></script>
   <script type='text/javascript' src='static/assets/js/ar/aframe-ar.js'></script>
   <script type='text/javascript' src='static/assets/js/ar_render.js'></script>
+  <style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
@@ -37,16 +56,28 @@
 
 
   </a-scene>
-  <script type="text/javascript">
-    window.addEventListener('load', () => {
-      document.querySelector('[gps-entity-place]').addEventListener('gps-entity-place-update-position', (payload) => {
-        let v = parseInt(payload.detail.distance);
-        // alert(`${v} meter`);
-        // you may show the distance in the value of <a-text>
-        // document.getElementById("id-of-a-text").setAttribute('value', `${v} meter`);
-      });
-    })
-  </script>
+  <div id='setloc'
+        style='position:absolute; left: 10px; bottom: 2%; z-index:999; background-color: blue; color: white; padding: 10px'>
+        Lat:<label id="lat"></label>
+        Lon: <label id="lon"></label>
+        Dist: <label id="dist"></label>
+    </div>
+    <script type="text/javascript">
+
+        window.addEventListener('load', () => {
+            document.querySelector('[gps-entity-place]').addEventListener('gps-entity-place-update-position', (payload) => {
+                let v = parseInt(payload.detail.distance);
+                document.getElementById("dist").innerHTML = `${v} meter`;
+                navigator.geolocation.getCurrentPosition((position) => {
+                    let lat = position.coords.latitude;
+                    let long = position.coords.longitude;
+                    document.getElementById("lat").innerHTML = lat.toFixed(4);
+                    document.getElementById("lon").innerHTML = long.toFixed(4);
+                });
+            })
+        });
+
+    </script>
 </body>
 
 </html>
